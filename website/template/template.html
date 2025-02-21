@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Главная страница</title>
+  <link rel="stylesheet" href="../../static/font-awesome-4.7.0/css/font-awesome.min.css">
+  <link href="../css/normalize.css" rel="stylesheet" type="text/css" />
+  <link href="../css/base.css" rel="stylesheet" type="text/css" />
+  <link href="../css/tempate.css" rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+</head>
+
+<body>
+
+    <section class="site">
+        <section class="header">
+            <div class="header-logo">
+                <div class="logo">
+                    <a href=""><h1 class="name-site">shop<span class="logo">card</span></h1></a>
+                </div>
+                <div class="transparent"></div>
+                <a href="" class="bin"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                <i class="fa fa-user-circle" aria-hidden="true"></i>
+                <a href='' class="text-sing-in">Sign in</a>
+            </div>
+            <div class="search">
+                <form class="search-form">
+                    <input type='text' placeholder="Search" class="form-input">
+                    <button class="button">Поиск</button>
+                </form>
+            </div>
+            <div class="catalog">
+                <a class="type">Еда</a>
+                <a class="type">Одежда</a>
+                <a class="type">Инструменты</a>
+                <a class="type">Игрушки</a>
+                <a class="type">Растения</a>
+                <a class="type">Электроника</a>
+                <a class="type">Обувь</a>
+                <a class="type">Косметика</a>
+            </div>
+        </section>
+        <section class="recommendations">
+            <div class="recommendations-div">
+                <div class="text-recomand">We picked some <span class="yellow">cool things</span> for you</div>
+                <div class="cards">
+                    <p class="recomend">We recommend you</p>
+                    <div class="products">
+                        <a href="" class="card-a">
+                            <div class="products__card">
+                                <div class="card__image-block">
+                                    <img class="card__image" src="../../static/img/headphone.jpg" alt="картинка товара">
+                                </div>
+                                <div class="card__description">
+                                    <div class="card__meta">
+                                        <div class="card__rating">5</div>
+                                    </div>
+                                    <div class="card__name">Наушники</div>
+                                    <div class="card__cost">500 000</div>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="" class="card-a">
+                            <div class="products__card">
+                                <div class="card__image-block">
+                                    <img class="card__image" src="../../static/img/headphone.jpg" alt="картинка товара">
+                                </div>
+                                <div class="card__description">
+                                    <div class="card__meta">
+                                        <div class="card__rating">5</div>
+                                    </div>
+                                    <div class="card__name">Наушники</div>
+                                    <div class="card__cost">500 000</div>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="" class="card-a">
+                            <div class="products__card">
+                                <div class="card__image-block">
+                                    <img class="card__image" src="../../static/img/headphone.jpg" alt="картинка товара">
+                                </div>
+                                <div class="card__description">
+                                    <div class="card__meta">
+                                        <div class="card__rating">5</div>
+                                    </div>
+                                    <div class="card__name">Наушники</div>
+                                    <div class="card__cost">500 000</div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="advertisement">
+            <img class="advertisement-img" src="../../static/img/advertisment.avif"><img>
+        </section>
+        <section class="slider">
+            <p class="text-slider">Today's hot deals<p>
+                <div class="swiper">
+                    <!-- Additional required wrapper -->
+                    <div class="swiper-wrapper">
+                      <!-- Slides -->
+                      <div class="swiper-slide">Slide 1</div>
+                      <div class="swiper-slide">Slide 2</div>
+                      <div class="swiper-slide">Slide 3</div>
+                      <div class="swiper-slide">Slide 4</div>
+                      <div class="swiper-slide">Slide 5</div>
+                      <div class="swiper-slide">Slide 6</div>
+                    </div>
+                    <!-- If we need navigation buttons -->
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+                  </div>
+        </section>
+        <section class="footer">
+            <div class="footer">
+                <div class="header-logo footer">
+                    <div class="logo">
+                        <a href=""><h1 class="name-site">shop<span class="logo">card</span></h1></a>
+                    </div>
+                </div>
+                <div class="menu">
+                    <a href="" class="about-us">About us</a>
+                    <a href="" class="contacts">Contacts</a>
+                    <a href="" class="help">Help</a>
+                </div>
+                <div class="sing-in">
+                    <!-- before icon -->
+                    <p class="text-sing-in">Sign in</p>
+                </div>
+            </div>
+        </section>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script type="module">
+        import Swiper from 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.mjs'
+      
+        const swiper = new Swiper(...)
+    </script>
+    <script>
+         const swiper = new Swiper('.swiper', {
+            // Optional parameters
+            direction: 'horizontal',
+
+            // Navigation arrows
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            }
+        });
+    </script>
+
+</body>
+
+</html>

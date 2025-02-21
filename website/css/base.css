@@ -1,0 +1,48 @@
+body{
+    font-family: 'Arial', sans-serif;
+}
+.site{
+    margin: 1vh 5vw;
+}
+.name-site{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 900;
+    color:#e6a83c;
+    font-size: 4.5vh;
+}
+.logo{
+    color: #1e1e1e;
+    font-weight: 100;
+}
+a {
+    text-decoration: none;
+}
+.transparent{
+    flex-grow: 1;
+}
+.text-sing-in{
+    color: #1e1e1e;;
+    font-family: 'Arial', sans-serif;
+    font-size: 2.5vh;
+}
+.fa-user-circle{
+    margin-right: 0.5vw;
+    font-size: 4vh;
+}
+.header-logo{
+    border-bottom: solid 0.4vh #ada8a8;
+    display: flex;
+    align-items: center;
+}
+.bin{
+    margin-right: 1vw;
+    font-size: 4vh;
+    color: #0d0d0d;
+}
+.footer{
+    border: none;
+}
+a:hover{
+    color: #e6a83c;
+    cursor: pointer;
+}

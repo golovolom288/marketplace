@@ -155,9 +155,9 @@ a.slider{
 }
 .rating-card{
     width: 50%;
-    height: 25vh;
-    border-radius: 1vh;
+    height: 27vh;
     color: #1e1e1e;
+    margin-bottom: 3vh;
 }
 .rating-card:nth-child(2n){
     margin-left: 3vw;

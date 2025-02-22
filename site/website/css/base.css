@@ -41,8 +41,31 @@ a {
 }
 .footer{
     border: none;
+    background-color: #404040;
+    margin: 0;
+    display: flex;
+    width: 100%;
+}
+.footer-div{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 1vh 5vw;
+}
+.url{
+    text-decoration: none;
+    color: #1e1e1e;
+    font-size: 2.5vh;
+}
+.url:not(:last-child){
+    margin-right: 1vw;
 }
 a:hover{
     color: #e6a83c;
     cursor: pointer;
+}
+.sing-in{
+    display: flex;
+    align-items: center;
 }

@@ -1,0 +1,201 @@
+body {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+}
+
+.header {
+  display: flex;
+  height: 40px;
+  width: auto;
+  justify-content: space-between;
+  border-bottom: 1px solid #CDCDCD;
+}
+
+.container {
+  margin: 30px 100px;
+}
+
+.autorization-block a {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+  text-decoration: none;
+  color: black;
+  font-size: 14px;
+  align-items: center;
+}
+
+
+.autorization-block a p {
+  margin: 0;
+  padding: 0;
+}
+
+.autorization-block a img {
+  width: 24px;
+  height: 24px;
+}
+
+.country-search {
+  display: flex;
+  margin-top: 10px;
+  width: auto;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: center;
+}
+
+.country-block {
+  display: flex;
+  width: 100px;
+  height: 40px;
+  background-color: #FFAE5D;
+  border-radius: 10px;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+}
+
+.country-block img {
+  width: 20px;
+  height: 20px;
+}
+
+.search-block {
+  display: flex;
+  width: 330px;
+  height: 40px;
+  border: 1px solid #C0C0C0;
+  border-radius: 10px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 10px;
+}
+
+.search-block input {
+  outline: none;
+  border: none;
+  width: 100%;
+  height: 100%;
+  background: none;
+}
+
+.search-block img{
+  width: 14px;
+  height: 14px;
+}
+
+.catalog-nav ul{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0;
+}
+
+.catalog-nav li{
+  list-style-type: none;
+}
+
+.catalog-nav li a{
+  text-decoration: none;
+  color: black;
+  font-size: 13px;
+}
+
+footer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: auto;
+  height: 150px;
+  background-color: #404040;
+  padding: 0 100px;
+}
+
+footer .footer-nav ul {
+  width: 280px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  padding: 0;
+  margin: 0;
+}
+
+footer .footer-nav li {
+  list-style-type: none;
+}
+
+footer .footer-nav li a{
+  text-decoration: none;
+  color: white;
+  font-size: 16px;
+}
+
+/* Переключение языка */
+.footer-language {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  font-weight: 500;
+  position: relative; 
+  cursor: pointer;
+  margin: 16px;
+}
+.footer-language span {
+  color: white;
+  font-size: 16px;
+}
+
+
+.footer-language .icon,
+.footer-language .arrow-icon {
+  width: 16px;
+  height: 16px;
+}
+
+.language-menu {
+  display: none;
+  position: absolute;
+  top: 100%; 
+  right: 0;
+  background: #222;
+  border-radius: 5px;
+  list-style: none;
+  z-index: 1000;
+  width: 175px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  padding: 0;
+  overflow: hidden; 
+}
+
+
+.language-menu li {
+  color: #fff;
+  cursor: pointer;
+  font-size: 16px;
+  text-align: center;
+  transition: background 0.2s ease;
+  cursor: pointer;
+}
+
+.language-menu li:hover {
+  background: #FFCE00;
+  color: black;
+}
+
+/* Hover эффект */
+.footer-language.active .language-menu {
+  display: block;
+}
+
+.footer-language.active .arrow-icon {
+  transform: rotate(180deg);
+  transition: transform 0.3s ease;
+}

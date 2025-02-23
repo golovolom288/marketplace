@@ -20,6 +20,7 @@ class Product(models.Model):
     discount = models.DecimalField(default=0.00, max_digits=7, decimal_places=2, verbose_name='Скидка в %')
     quantity = models.PositiveIntegerField(default=0, verbose_name='Количество')
     category = models.ForeignKey(to=Categories, on_delete=models.PROTECT, verbose_name='Категория')
+    is_hot_deal = models.BooleanField(default=True, verbose_name="Hot Deal!")
 
     class Meta:
         db_table: str = 'product'

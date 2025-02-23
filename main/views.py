@@ -1,3 +1,7 @@
+from django.http import JsonResponse
 from django.shortcuts import render
+# from .models import Quest
 
-# Create your views here.
+
+def home(request):
+    return render(request, 'home.html')

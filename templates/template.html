@@ -1,0 +1,102 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Главная страница</title>
+  <!-- <link rel="stylesheet" href="../../static/font-awesome-4.7.0/css/font-awesome.min.css"> -->
+  <link rel="stylesheet" href="{% static 'css/template.css' %}">
+  <link rel="stylesheet" href="{% static 'css/template.css' %}">
+  {% block css%} {% endblock %}
+</head>
+
+<body>
+  <div class="container">
+    <header class="header">
+      <div class="logo-block">
+        <img src="/static/imgs/shopcart.png" alt="">
+      </div>
+      <div class="autorization-block">
+        <a href="#">
+          <img src="/static/imgs/icons/profile.svg" alt="">
+          <p>Sign Up</p>
+        </a>
+      </div>
+    </header>
+
+    <div class="country-search">
+      <div class="country-block">
+        <img src="/static/imgs/icons/location.svg" alt="">
+        <p>Delhi, 110110</p>
+      </div>
+      <div class="search-block">
+        <input type="text" placeholder="Search">
+        <img src="/static/imgs/icons/search.svg" alt="">
+      </div>
+    </div>
+
+    <div class="catalog">
+      <nav class="catalog-nav">
+        <ul>
+          <li><a href="#">Fresh</a></li>
+          <li><a href="#">Today’s Deals</a></li>
+          <li><a href="#">Mobiles</a></li>
+          <li><a href="#">Gift Cards</a></li>
+          <li><a href="#">Women Clothing</a></li>
+          <li><a href="#">Men Clothing</a></li>
+          <li><a href="#">Kids Clothing</a></li>
+          <li><a href="#">Health</a></li>
+          <li><a href="#">Pet corner</a></li>
+          <li><a href="#">Books</a></li>
+          <li><a href="#">Beauty</a></li>
+          <li><a href="#">Kitchen</a></li>
+          <li><a href="#">Bed Room</a></li>
+          <li><a href="#">Sport</a></li>
+          <li><a href="#">Bags</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <main>
+      {% block content %}
+      {% endblock %}
+    </main>
+
+  
+
+    <footer>
+      <div class="logo-block">
+        <img src="/static/imgs/shopcart-white.png" alt="">
+      </div>
+
+      <div class="footer-links">
+        <nav class="footer-nav">
+          <ul>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">Help</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="footer-language">
+        <img src="/static/imgs/england.png" alt="">
+        <span>English</span>
+        <img src="/static/imgs/icons/arrowdown.svg" class="arrow-icon" alt="Arrow Icon">
+        <ul class="language-menu">
+          <li data-lang="en">Comming soon...</li>
+          <li data-lang="ru">Comming soon...</li>
+          <li data-lang="es">Comming soon...</li>
+          <li data-lang="fr">Comming soon...</li>
+        </ul>
+      </div>
+    </footer>
+  </div>
+  <script src="{% static 'js/template.js' %}"></script>
+
+</body>
+
+</html>

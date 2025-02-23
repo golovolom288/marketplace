@@ -7,16 +7,56 @@
 {% endblock %}
 
 {% block css %}
-  <link rel="stylesheet" href="{% static 'css/quiz.css' %}">
+  <link rel="stylesheet" href="{% static 'css/home.css' %}">
 {% endblock %}
 
 
 {% block content %}
-  <div class="new-product-block"></div>
-  <div class="hot-deals-block"></div>
+  <div class="new-product-block">
+    ede
+  </div>
+
+  <div class="hot-deals-block">
+    <div class="hot-deals-text">
+      <h3>We picked<br>some <span style="color: #FFAE5D; font-weight: bold;">cool <br> things</span> for<br>you!</h3>
+    </div>
+    <div class="hot-deals-products">
+      <div class="hot-deals-title">
+        <p>hot deals for you</p>
+      </div>
+
+      <div class="hot-products">
+        {% if products_list %}
+          {% for product in products_list %}
+            <div class="product-card">
+               <a href="#"> 
+                <div class="product-image">
+                  <img src="{{ product.product_img.url }}" alt="{{ product.name }}">
+                </div>
+                <div class="product-nmae">
+                  <h2 class="product-title">{{ product.title|safe }}</h2>
+                </div>
+                <div class="product-price">
+                  <p class="product-date">{{ product.published_date }}</p>
+                </div>
+              </a>
+            </div>
+          {% endfor %}
+        {% else %}
+          <p class="no-product-message">No products available at the moment.</p>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+
   <div class="special-offer"></div>
   
-  <div class="searched-items"></div>
+  <div class="category-1"></div>
+  <div class="category-2"></div>
+  <div class="category-3"></div>
+
+  <div class="something"></div>
+  <div class="popular-categories"></div>
   <div class="searched-items"></div>
 
 {% endblock %}

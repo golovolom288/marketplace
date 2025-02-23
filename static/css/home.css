@@ -1,0 +1,53 @@
+.new-product-block {
+  left: 0;
+  right: 0;
+  position: relative;
+  width: auto;
+  height: 500px;
+  background-color: #404040;
+}
+
+.hot-deals-block {
+  margin-top: 30px;
+  height: 400px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.hot-deals-text h3{
+  font-size: 50px;
+  color: black;
+  font-weight: lighter;
+  line-height: 100%;
+  letter-spacing: 5%;
+}
+
+.hot-deals-products {
+  display: flex;
+  height: 100%;
+  width: auto;
+  flex-direction: column;
+  background-color: #404040;
+}
+
+.hot-deals-title {
+  display: flex;
+  width: 100%;
+  height: 26px;
+  border: 1px dashed yellow;
+  align-items: center;
+}
+
+.hot-deals-title p {
+  margin: 0;
+  font-size: 12px;
+  color: black;
+}
+
+/* КАРТОЧКА ПРОДУКТА  */
+.product-card {
+  display: flex;
+  flex-direction: column;
+}

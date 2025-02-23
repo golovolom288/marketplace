@@ -14,7 +14,7 @@ class Categories(models.Model):
 class Product(models.Model):
     name = models.CharField(max_length=150, unique=True, verbose_name='Название')
     slug = models.SlugField(max_length=200, unique=True, blank=True, null=True, verbose_name='URL')
-    product_img = models.ImageField(upload_to='good_images', blank=True, null=True, verbose_name='Изображение товара')
+    product_img = models.ImageField(upload_to='media/good_images', blank=True, null=True, verbose_name='Изображение товара')
     description = models.TextField(blank=True, null=True, verbose_name='Описание')
     price = models.DecimalField(default=0.00, max_digits=7, decimal_places=2, verbose_name='Цена')
     discount = models.DecimalField(default=0.00, max_digits=7, decimal_places=2, verbose_name='Скидка в %')

@@ -17,6 +17,5 @@ def home(request):
     })
 
 
-def product_detail(request, pk):
-    product_item = get_object_or_404(Product, pk=pk)
-    return render(request, 'news_detail.html', {'news_item': product_item})
+def category(request):
+    return render(request, 'catalog.html')

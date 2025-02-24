@@ -1,6 +1,5 @@
 body {
   display: flex;
-  height: 100%;
   flex-direction: column;
 }
 
@@ -14,6 +13,7 @@ body {
 
 .container {
   margin: 30px 100px;
+  height: 100%;
 }
 
 .autorization-block a {

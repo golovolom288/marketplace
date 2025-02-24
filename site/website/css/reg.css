@@ -54,8 +54,6 @@ input{
 }
 button{
   width: 85%;
-  padding-left: 6vw;
-  padding-right: 6vw;
   margin-top: 2vh;
   border-radius: 1.25rem;
   border: none;
@@ -90,9 +88,4 @@ button:hover{
 a:hover{
   color: #c68920;
   transition: all 0.375s;
-}
-a.a{
-  text-align: center;
-  margin-bottom: 0;
-  margin-top: 3vh;
 }

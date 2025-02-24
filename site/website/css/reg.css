@@ -18,7 +18,6 @@ body{
   animation: form_animation 6s infinite alternate-reverse linear;
 }
 @keyframes form_animation{
-  from{}
   to{
     background-position: 15% 50%;
   }

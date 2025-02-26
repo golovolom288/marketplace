@@ -1,12 +1,20 @@
 from django.contrib import admin
-from main.models import Categories, Product, ProductImage
+from main.models import Category, Product, ProductImage
 
 
-@admin.register(Categories)
-class CategoriesAdmin(admin.ModelAdmin):
-    list_display = ('name', 'is_hot_category', 'popular_category')
+class SubCategoryInline(admin.TabularInline):  # Встроенные подкатегории
+    model = Category
+    fk_name = "parent_category"
+    extra = 1
+
+
+@admin.register(Category)
+class CategoryAdmin(admin.ModelAdmin):
+    list_display = ('name', 'parent_category', 'is_hot_category', 'popular_category')
     list_editable = ('is_hot_category', 'popular_category')
     search_fields = ['name']
+    list_filter = ('parent_category', 'is_hot_category', 'popular_category')
+    inlines = [SubCategoryInline]  # Вложенные подкатегории внутри категории
 
 
 class ProductImageInline(admin.TabularInline):

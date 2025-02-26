@@ -1,15 +1,15 @@
 from django.shortcuts import render, get_object_or_404
-from .models import Product, Categories
+from .models import Product, Category
 
 
 def home(request):
     hot_products = Product.objects.filter(is_hot_deal=True)
-    hot_categories = Categories.objects.filter(is_hot_category=True)
+    hot_categories = Category.objects.filter(is_hot_category=True)
 
     product_list = Product.objects.all()
-    categories = Categories.objects.all()
+    categories = Category.objects.all()
 
-    popular_categories = Categories.objects.filter(popular_category=True)
+    popular_categories = Category.objects.filter(popular_category=True)
     products_popular_category = Product.objects.filter(category__in=hot_categories)
 
     return render(request, 'home.html', {

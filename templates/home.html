@@ -29,12 +29,10 @@
         {% if hot_products %}
           {% for product in hot_products %}
             <div class="product-card">
-               <a href="#"> 
+               <a href="{% url 'product_detail' product.pk %}"> 
                 <div class="product-image">
-                  {% if product.product_img %}
-                    <img src="{{ product.product_img.url }}" alt="{{ product.name }}">
-                  {% else %}
-                    <p>Нет изображения!</p>
+                  {% if product.get_main_image %}
+                    <img src="{{ product.get_main_image }}" alt="Главное фото" width="300">
                   {% endif %}
                 </div>
                 <div class="product-name">
@@ -97,9 +95,11 @@
             {% for product_popular_category in products_popular_category %}
               {% if product_popular_category.category == hot_category %}
                 <div class="product-card">
-                  <a href="#"> 
+                  <a href="{% url 'product_detail' product_popular_category.pk %}"> 
                     <div class="product-image">
-                      <img src="{{ product_popular_category.product_img.url }}" alt="{{ product_popular_category.name }}">
+                      {% if product_popular_category.get_main_image %}
+                        <img src="{{ product_popular_category.get_main_image }}" alt="Главное фото" width="300">
+                      {% endif %}
                     </div>
                     <div class="product-name">
                       <h2 class="product-title">{{ product_popular_category.name|safe }}</h2>
@@ -131,7 +131,7 @@
         <div class="categories">
           {% for popular_category in popular_categories %}
             <div class="category-card">
-              <a href="#"> 
+              <a href="{% url 'product_detail' popular_category.pk %}"> 
                 <div class="category-image">
                   {% if popular_category.category_img %}
                     <img src="{{ popular_category.category_img.url }}" alt="{{ popular_category.name }}">

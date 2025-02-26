@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from .models import Product, Categories
 
 
@@ -22,5 +22,15 @@ def home(request):
     })
 
 
-def category(request):
+def product_detail(request, pk):
+    product_item = get_object_or_404(Product, pk=pk)
+    product_images = product_item.images.all()  # Загружаем все изображения товара
+
+    return render(request, 'product_detail.html', {
+        'product_item': product_item,
+        'product_images': product_images
+    })
+
+
+def catalog(request):
     return render(request, 'catalog.html')

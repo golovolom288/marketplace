@@ -23,3 +23,33 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 });
+
+function startCountdown(hours) {
+    let time = hours * 60 * 60; // Переводим в секунды
+    const hoursElement = document.getElementById("hours");
+    const minutesElement = document.getElementById("minutes");
+    const secondsElement = document.getElementById("seconds");
+
+    function updateTimerDisplay() {
+        let hrs = Math.floor(time / 3600);
+        let mins = Math.floor((time % 3600) / 60);
+        let secs = time % 60;
+
+        hoursElement.textContent = String(hrs).padStart(2, '0');
+        minutesElement.textContent = String(mins).padStart(2, '0');
+        secondsElement.textContent = String(secs).padStart(2, '0');
+
+        if (time > 0) {
+            time--;
+            setTimeout(updateTimerDisplay, 1000);
+        } else {
+            hoursElement.textContent = "00";
+            minutesElement.textContent = "00";
+            secondsElement.textContent = "00";
+        }
+    }
+
+    updateTimerDisplay();
+}
+
+startCountdown(1);

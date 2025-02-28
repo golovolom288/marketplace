@@ -7,7 +7,7 @@ def home(request):
     hot_categories = Category.objects.filter(is_hot_category=True)
 
     product_list = Product.objects.all()
-    categories = Category.objects.all()
+    categories = Category.objects.filter(parent_category__isnull=True).prefetch_related("subcategories")
 
     popular_categories = Category.objects.filter(popular_category=True)
     products_popular_category = Product.objects.filter(category__in=hot_categories)
@@ -22,9 +22,9 @@ def home(request):
     })
 
 
-def product_detail(request, pk):
-    product_item = get_object_or_404(Product, pk=pk)
-    product_images = product_item.images.all()  # Загружаем все изображения товара
+def product_detail(request, slug):
+    product_item = get_object_or_404(Product, slug=slug)
+    product_images = product_item.images.all()
 
     return render(request, 'product_detail.html', {
         'product_item': product_item,
@@ -32,5 +32,17 @@ def product_detail(request, pk):
     })
 
 
-def catalog(request):
-    return render(request, 'catalog.html')
+def category_products(request, slug, parent_slug=None):
+    if parent_slug:
+        parent_category = get_object_or_404(Category, slug=parent_slug)
+        category = get_object_or_404(Category, slug=slug, parent_category=parent_category)
+    else:
+        category = get_object_or_404(Category, slug=slug, parent_category__isnull=True)
+
+    subcategories = category.subcategories.all()
+    if subcategories.exists():
+        products = Product.objects.filter(category__in=[category] + list(subcategories))
+    else:
+        products = Product.objects.filter(category=category)
+
+    return render(request, 'category_products.html', {'category': category, 'products': products})

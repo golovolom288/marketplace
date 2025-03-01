@@ -1,0 +1,96 @@
+{% extends 'template.html' %}
+
+{% load static %}
+
+{% block title %}
+  Quiz
+{% endblock %}
+
+{% block css %}
+  <link rel="stylesheet" href="{% static 'css/product-detail.css' %}">
+{% endblock %}
+
+
+{% block content %}
+  <div class="product-detail-container">
+    {% if product_item %}
+    <div class="path-to-category">
+      <p>
+          <a href="/">Главная</a>
+          {% for cat in category_path %}
+              /
+              {% if forloop.first %}
+                  <a href="{% url 'category_products' cat.slug %}">{{ cat.name }}</a>
+              {% else %}
+                  <a href="{% url 'category_products' parent_slug=cat.parent_category.slug slug=cat.slug %}">{{ cat.name }}</a>
+              {% endif %}
+          {% endfor %}
+          / {{ product_item.name }}
+      </p>
+    </div>
+
+      <div class="product-block">
+        <div class="other-photos">
+          {% for image in product_item.images.all %}
+            <div class="other-photo">
+              <img src="{{ image.image.url }}" alt="Фото {{ forloop.counter }}" class="thumbnail">
+            </div>
+          {% endfor %}
+        </div>
+        <div class="main-photo">
+          {% if product_item.get_main_image %}
+            <div class="zoom-container">
+              <img src="{{ product_item.get_main_image }}" alt="Главное фото" id="zoomImage">
+              <div class="zoom-lens"></div>
+            </div>
+          {% endif %}
+        </div>
+        
+        <div class="product-content">
+          <div class="product-title">{{ product_item.name }}</div>
+          <div class="product-rating">
+            <img src="/static/imgs/icons/star.svg">
+            <p>4,9</p>
+            <p>•</p>
+            <a href="#">
+              <p>321,233 reviews</p>
+              <img src="/static/imgs/icons/arrow-right.svg">
+            </a>
+          </div>
+          <div class="product-buy-block">
+            <div class="product-price">$ {{ product_item.price }}</div>
+            <div class="product-description">Description :<br>{{ product_item.description }}</div>
+            <div class="product-buy-share-like">
+              <button class="btn-add-to-cart">Add to cart</button>
+              <img src="/static/imgs/icons/favourite.svg">
+              <img src="/static/imgs/icons/share.svg" id="copyLink" style="cursor: pointer;" alt="Share">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="specifications">
+        <table>
+          <thead>
+            <tr>
+              <th>Specification</th>
+              <th>Value</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for spec in product_item.specifications.all %}
+              <tr>
+                <td>{{ spec.name }}</td>
+                <td>{{ spec.value }}</td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+      
+
+      <div class="reviews-block"></div>
+     {% endif %}
+  </div>
+  
+  <script src="{% static 'js/product_detail.js' %}"></script>
+{% endblock %}

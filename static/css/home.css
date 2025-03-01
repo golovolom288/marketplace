@@ -1,0 +1,270 @@
+.new-product-block {
+  left: 0;
+  right: 0;
+  position: relative;
+  width: auto;
+  height: 500px;
+  background: url("/static/imgs/apple_products.png") no-repeat center;
+}
+
+.hot-deals-block {
+  margin-top: 30px;
+  height: 400px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 100px;
+}
+
+.hot-deals-text h3{
+  font-size: 50px;
+  color: black;
+  font-weight: lighter;
+  line-height: 100%;
+  letter-spacing: 5%;
+}
+
+.products {
+  display: flex;
+  height: 100%;
+  width: auto;
+  flex-direction: column;
+}
+
+.products-title, .hot-categories-title, .categories-title {
+  display: flex;
+  width: 100%;
+  height: 26px;
+  border-bottom: 1px dashed #FFAE5D;
+  align-items: center;
+}
+
+.products-title p {
+  margin: 0;
+  font-size: 12px;
+  color: black;
+  font-weight: bold;
+}
+
+/* ___________________________________________________________________________________________________________ */
+/* КАРТОЧКА ПРОДУКТА  */
+
+.hot-products {
+  margin-top: 15px;
+  display: flex;
+  flex-direction: row;
+  max-width: 880px;
+  width: auto;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.hot-categories-products {
+  margin-top: 15px;
+  width: 100%;
+}
+
+.product-card {
+  display: flex;
+  flex-direction: column;
+  width: 130px;
+  height: 160px;
+  margin-bottom: 10px;
+
+}
+
+.product-card a, .category-card a {
+  text-decoration: none;
+  display: block;
+  width: 130px;
+}
+
+
+.product-title, .category-title {
+  margin-top: 5px;
+  font-size: 10px;
+  margin: 0;
+  color: black;
+  font-weight: bold;
+  height: 22px;
+  width: 130px;
+}
+
+.product-pricing {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 5px;
+}
+
+.product-discount {
+  font-size: 10px;
+  color: red;
+}
+
+.product-price {
+  font-size: 10px;
+  color: black;
+}
+
+.product-image {
+  width: 130px;
+  height: 120px;
+  margin-bottom: 5px;
+}
+
+.product-image img {
+  width: auto;
+  height: auto;
+  max-width: 130px;
+  max-height: 120px;
+}
+
+/* ___________________________________________________________________________________________________________ */
+/* СПЕЦИАЛЬНОЕ ПРЕДЛОЖЕНИЕ */
+.special-offer {
+  display: flex;
+  height: 400px;
+  margin-top: 15px;
+  background-color: #F5F5F5;
+  margin-left: -100px;
+  margin-right: -100px;
+  padding: 0px 100px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.special-offer-text {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  height: 340px;
+}
+
+.special-offer-photo {
+  height: 340px;
+  border: 1px solid #404040;
+  border-radius: 20px;
+  width: auto;
+  min-width: 800px;
+  background: url("/static/imgs/promotion.png");
+}
+
+.special-offer h1 {
+  margin: 0;
+}
+
+.timer-container {
+  display: flex;
+  align-items: center;
+  font-size: 48px;
+  font-weight: bold;
+  font-style: italic;
+}
+
+.timer-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 10px;
+}
+
+.label {
+  font-size: 16px;
+  font-weight: normal;
+}
+
+.separator {
+  font-size: 48px;
+  font-weight: bold;
+  line-height: 1;
+}
+
+/* ___________________________________________________________________________________________________________ */
+/* САМЫЕ ПОПУЛЯРНЫЕ КАТЕГОРИИ */
+.most-popular-categories, .popular-categories {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.hot-categories-block {
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+  width: auto;
+  gap: 20px;
+}
+
+/* ___________________________________________________________________________________________________________ */
+/* SOMETHING */
+
+.something {
+  margin-top: 30px;
+  height: 480px;
+
+  background: url("/static/imgs/black_friday.png") no-repeat center;
+}
+
+/* ___________________________________________________________________________________________________________ */
+/* POPULAR CATEGORIES */
+
+.popular-categories {
+  margin-top: 30px;
+}
+
+.categories-block {
+  display: flex;
+  flex-direction: column;
+}
+
+.categories {
+  display: flex;
+  flex-direction: row;
+
+}
+
+.category-title {
+  text-align: center;
+}
+
+.category-card {
+  display: flex;
+  flex-direction: column;
+  width: 180px;
+  height: 120px;
+  margin-bottom: 10px;
+}
+
+.category-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.category-image {
+  width: 180px;
+  height: 100px;
+}
+  
+.category-image img{
+  max-width: 180px;
+  max-height: 100px;
+  width: auto;
+  height: auto;
+}
+
+.category-title {
+  color: black;
+  font-size: 14px;
+}
+
+.hot-categories-products .product-card {
+  transition: transform 0.3s ease-in-out;
+}
+
+.hot-categories-products .slick-center .product-card {
+  transform: scale(1.1);
+}

@@ -18,39 +18,38 @@
 
   <div class="hot-deals-block">
     <div class="hot-deals-text">
-      <h3>We picked<br>some <span style="color: #FFAE5D; font-weight: bold;">cool <br> things</span> for<br>you!</h3>
+        <h3>We picked<br>some <span class="highlight-text">cool <br> things</span> for<br>you!</h3>
     </div>
     <div class="products">
-      <div class="products-title">
-        <p>hot deals for you</p>
-      </div>
-
-      <div class="hot-products">
-        {% if hot_products %}
-          {% for product in hot_products %}
-            <div class="product-card">
-               <a href="{% url 'product_detail' product.slug %}"> 
-                <div class="product-image">
-                  {% if product.get_main_image %}
-                    <img src="{{ product.get_main_image }}" alt="Главное фото" width="300">
-                  {% endif %}
-                </div>
-                <div class="product-name">
-                  <h2 class="product-title">{{ product.name|safe }}</h2>
-                </div>
-                <div class="product-pricing">
-                  <p class="product-price">$ {{ product.price }}</p>
-                  {% if product.discount %}
-                    <p class="product-discount">-{{ product.discount }}%</p>
-                  {% endif %}
-                </div>
-              </a>
-            </div>
-          {% endfor %}
-        {% else %}
-          <p class="no-product-message">No products available at the moment.</p>
-        {% endif %}
-      </div>
+        <div class="products-title">
+            <p>🔥 Hot deals for you 🔥</p>
+        </div>
+        <div class="hot-products slider">
+            {% if hot_products %}
+                {% for product in hot_products %}
+                    <div class="product-card">
+                        <a href="{% url 'product_detail' product.slug %}"> 
+                            <div class="product-image">
+                                {% if product.get_main_image %}
+                                    <img src="{{ product.get_main_image }}" alt="{{ product.name }}">
+                                {% endif %}
+                            </div>
+                            <div class="product-name">
+                                <h2 class="product-title">{{ product.name|safe }}</h2>
+                            </div>
+                            <div class="product-pricing">
+                                <p class="product-price">$ {{ product.price }}</p>
+                                {% if product.discount %}
+                                    <p class="product-discount">-{{ product.discount }}%</p>
+                                {% endif %}
+                            </div>
+                        </a>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <p class="no-product-message">No products available at the moment.</p>
+            {% endif %}
+        </div>
     </div>
   </div>
 
@@ -91,27 +90,27 @@
             <p>{{ hot_category.name }}</p>
           </div>
 
-          <div class="hot-categories-products">
+          <div class="hot-categories-products slider">
             {% for product_popular_category in products_popular_category %}
               {% if product_popular_category.category == hot_category %}
-                <div class="product-card">
-                  <a href="{% url 'product_detail' product_popular_category.slug %}"> 
-                    <div class="product-image">
-                      {% if product_popular_category.get_main_image %}
-                        <img src="{{ product_popular_category.get_main_image }}" alt="Главное фото" width="300">
-                      {% endif %}
-                    </div>
-                    <div class="product-name">
-                      <h2 class="product-title">{{ product_popular_category.name|safe }}</h2>
-                    </div>
-                    <div class="product-pricing">
-                      <p class="product-price">$ {{ product_popular_category.price }}</p>
-                      {% if product_popular_category.discount %}
-                        <p class="product-discount">-{{ product_popular_category.discount }}%</p>
-                      {% endif %}
-                    </div>
-                  </a>
-                </div>
+                  <div class="product-card">
+                    <a href="{% url 'product_detail' product_popular_category.slug %}"> 
+                      <div class="product-image">
+                        {% if product_popular_category.get_main_image %}
+                          <img src="{{ product_popular_category.get_main_image }}" alt="Главное фото" width="300">
+                        {% endif %}
+                      </div>
+                      <div class="product-name" style="height: 22px;">
+                        <h2 class="product-title">{{ product_popular_category.name|safe }}</h2>
+                      </div>
+                      <div class="product-pricing">
+                        <p class="product-price">$ {{ product_popular_category.price }}</p>
+                        {% if product_popular_category.discount %}
+                          <p class="product-discount">-{{ product_popular_category.discount }}%</p>
+                        {% endif %}
+                      </div>
+                    </a>
+                  </div>
               {% endif %}
             {% endfor %}
           </div>
@@ -151,5 +150,49 @@
   </div>
 
   <div class="searched-items"></div>
+
+
+  <!-- Подключение Slick.js -->
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick.css"/>
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick-theme.css"/>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick.min.js"></script>
+<script>
+  $('.hot-categories-products').slick({
+    slidesToShow: 4,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 2500,
+    infinite: true,
+    arrows: true,
+    dots: true,
+    centerMode: true,
+    centerPadding: "40px", /* Чуть больше отступа */
+    variableWidth: true,
+    responsive: [
+        {
+            breakpoint: 1024,
+            settings: {
+                slidesToShow: 3,
+                centerPadding: "50px" /* Чуть больше отступа */
+            }
+        },
+        {
+            breakpoint: 768,
+            settings: {
+                slidesToShow: 2,
+                centerPadding: "40px"
+            }
+        },
+        {
+            breakpoint: 480,
+            settings: {
+                slidesToShow: 1,
+                centerPadding: "20px"
+            }
+        }
+    ]
+  });
+</script>
 
 {% endblock %}

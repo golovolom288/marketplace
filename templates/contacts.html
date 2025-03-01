@@ -1,39 +1,42 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PetFood</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    
-    <section class="hero">
-        <h2>Свяжитесь с нами</h2>
-        <p>Мы заботимся о вашем питомце и подберем для него лучшую еду.</p>
-    </section>
-    
-    <section class="contact-info">
-        <div class="info-block">
-            <h3>Позвоните нам</h3>
-            <p>+37529999999</p>
-        </div>
-        <div class="info-block">
-            <h3>Адрес</h3>
-            <p>Москва</p>
-        </div>
-        <div class="info-block">
-            <h3>Напишите нам</h3>
-            <p>info@gmail.com</p>
-        </div>
-        <div class="info-block">
-            <h3>Часы работы</h3>
-            <p>пп<br>пп</p>
-        </div>
-    </section>
-    
-    <section class="image-section">
-        <img src="https://s3-alpha-sig.figma.com/img/a18d/07e4/89046319fed02b0df828e62c43fc0f83?Expires=1740960000&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=FgCxWFvxMArGccWzIfxh0ZIzgt7fI6fKe12oJOV-7-vngvSuGs~jnT-1pSPOJNCRhmj8WgWVOzjj5RS~QenaXFfzX7nFzbWZS65yG1jjL~7Nqut~2rDe1CVA3q~oG8UbDr1RYZ9abr15mJ8qhmZhjTWXefW-GSZkuiL-M8dEkJpjeg~N3o~75sySMAZWMupcvfM-AUfNfEIukYzyqLoWMkjVNVtaLPvXEBEqfzdSQfilrR9lnmMBsD5pFbAqmLCtvTnkNVjVoBIS~ZU98c6DsWHgBysson6qgOHWUCWG1X72FWiX-PAmxR-N44pscY9CNcRoVNnaN5SXJMwjAYNV0A__" alt="Pet food products">
-    </section>
-</body>
-</html>
+{% extends 'template.html' %}
+
+{% load static %}
+
+{% block title %}
+  Contacts
+{% endblock %}
+
+{% block css %}
+  <link rel="stylesheet" href="{% static 'css/contacts.css' %}">
+{% endblock %}
+
+
+{% block content %}    
+  <section class="hero">
+      <h2>Свяжитесь с нами</h2>
+      <p>Мы заботимся о вашем питомце и подберем для него лучшую еду.</p>
+  </section>
+  
+  <section class="contact-info">
+      <div class="info-block">
+          <h3>Позвоните нам</h3>
+          <p>+37529999999</p>
+      </div>
+      <div class="info-block">
+          <h3>Адрес</h3>
+          <p>Москва</p>
+      </div>
+      <div class="info-block">
+          <h3>Напишите нам</h3>
+          <p>info@gmail.com</p>
+      </div>
+      <div class="info-block">
+          <h3>Часы работы</h3>
+          <p>пп<br>пп</p>
+      </div>
+  </section>
+  
+  <section class="image-section">
+      <img src="https://s3-alpha-sig.figma.com/img/a18d/07e4/89046319fed02b0df828e62c43fc0f83?Expires=1740960000&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=FgCxWFvxMArGccWzIfxh0ZIzgt7fI6fKe12oJOV-7-vngvSuGs~jnT-1pSPOJNCRhmj8WgWVOzjj5RS~QenaXFfzX7nFzbWZS65yG1jjL~7Nqut~2rDe1CVA3q~oG8UbDr1RYZ9abr15mJ8qhmZhjTWXefW-GSZkuiL-M8dEkJpjeg~N3o~75sySMAZWMupcvfM-AUfNfEIukYzyqLoWMkjVNVtaLPvXEBEqfzdSQfilrR9lnmMBsD5pFbAqmLCtvTnkNVjVoBIS~ZU98c6DsWHgBysson6qgOHWUCWG1X72FWiX-PAmxR-N44pscY9CNcRoVNnaN5SXJMwjAYNV0A__" alt="Pet food products">
+  </section>
+{% endblock %}

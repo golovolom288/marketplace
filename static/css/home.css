@@ -192,6 +192,7 @@
 .hot-categories-block {
   margin-top: 15px;
   display: flex;
+
   flex-direction: column;
   max-width: 100%;
   width: auto;
@@ -228,6 +229,14 @@
 
 .category-title {
   text-align: center;
+  width: 100%;
+}
+
+.category-name {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
 }
 
 .category-card {
@@ -245,12 +254,12 @@
 }
 
 .category-image {
-  width: 180px;
+  width: 130px;
   height: 100px;
 }
   
 .category-image img{
-  max-width: 180px;
+  max-width: 130px;
   max-height: 100px;
   width: auto;
   height: auto;

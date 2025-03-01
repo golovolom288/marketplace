@@ -51,10 +51,6 @@
         <img src="/static/imgs/icons/location.svg" alt="">
         <p>Delhi, 110110</p>
       </div>
-      <div class="search-block">
-        <input type="text" placeholder="Search">
-        <img src="/static/imgs/icons/search.svg" alt="">
-      </div>
     </div>
 
     <div class="catalog">
@@ -68,7 +64,7 @@
                 <div class="subs">
                   <ul class="subcategories">
                     {% for subcategory in category.subcategories.all %}
-                      <li><a href="{% url 'category_products' subcategory.slug %}">{{ subcategory.name }}</a></li>
+                      <li><a href="{% url 'category_products' category.slug subcategory.slug %}">{{ subcategory.name }}</a></li>
                     {% endfor %}
                   </ul>
                 </div>
@@ -85,34 +81,34 @@
       {% endblock %}
     </main>
     
-    <footer>
-      <div class="logo-block">
-        <img src="/static/imgs/shopcart-white.png" alt="">
-      </div>
-  
-      <div class="footer-links">
-        <nav class="footer-nav">
-          <ul>
-            <li><a href="#">About Us</a></li>
-            <li><a href="#">Contact</a></li>
-            <li><a href="#">Help</a></li>
-          </ul>
-        </nav>
-      </div>
-  
-      <div class="footer-language">
-        <img src="/static/imgs/england.png" alt="">
-        <span>English</span>
-        <img src="/static/imgs/icons/arrowdown.svg" class="arrow-icon" alt="Arrow Icon">
-        <ul class="language-menu">
-          <li data-lang="en">Comming soon...</li>
-          <li data-lang="ru">Comming soon...</li>
-          <li data-lang="es">Comming soon...</li>
-          <li data-lang="fr">Comming soon...</li>
-        </ul>
-      </div>
-    </footer>
   </div>
+  <footer>
+    <div class="logo-block">
+      <img src="/static/imgs/shopcart-white.png" alt="">
+    </div>
+
+    <div class="footer-links">
+      <nav class="footer-nav">
+        <ul>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Contact</a></li>
+          <li><a href="#">Help</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <div class="footer-language">
+      <img src="/static/imgs/england.png" alt="">
+      <span>English</span>
+      <img src="/static/imgs/icons/arrowdown.svg" class="arrow-icon" alt="Arrow Icon">
+      <ul class="language-menu">
+        <li data-lang="en">Comming soon...</li>
+        <li data-lang="ru">Comming soon...</li>
+        <li data-lang="es">Comming soon...</li>
+        <li data-lang="fr">Comming soon...</li>
+      </ul>
+    </div>
+  </footer>
   
   <script src="{% static 'js/template.js' %}"></script>
 

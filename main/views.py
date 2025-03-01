@@ -64,3 +64,11 @@ def get_category_path_from_slug(slug, parent_slug=None):  # Тут я получ
         category = get_object_or_404(Category, slug=slug, parent_category__isnull=True)
 
     return category
+
+
+def blog(request):
+    return render(request, 'blog.html')
+
+
+def contacts(request):
+    return render(request, 'contacts.html')

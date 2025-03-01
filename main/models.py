@@ -72,3 +72,11 @@ class ProductSpecification(models.Model):
 
     def __str__(self):
         return f"{self.name}: {self.value}"
+
+
+class ShoppingCart(models.Model):
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    product_img = models.ForeignKey(ProductImage, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f"{self.product}"

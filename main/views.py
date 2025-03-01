@@ -22,27 +22,45 @@ def home(request):
     })
 
 
-def product_detail(request, slug):
+def get_category_path(category):
+    path = []
+    while category:
+        path.append(category)
+        category = category.parent_category
+    return list(reversed(path))
+
+
+def product_detail(request, slug, parent_slug=None):
     product_item = get_object_or_404(Product, slug=slug)
     product_images = product_item.images.all()
+    category = product_item.category
+
+    category_path = get_category_path(category)
+    parent_slug = category.parent_category.slug if category.parent_category else None
 
     return render(request, 'product_detail.html', {
         'product_item': product_item,
-        'product_images': product_images
+        'product_images': product_images,
+        'category': category,
+        'category_path': category_path,
+        'parent_slug': parent_slug,
     })
 
 
 def category_products(request, slug, parent_slug=None):
+    category = get_category_path_from_slug(slug, parent_slug)
+
+    subcategories = category.subcategories.all()
+    products = Product.objects.filter(category__in=[category] + list(subcategories)) if subcategories.exists() else Product.objects.filter(category=category)
+
+    return render(request, 'category_products.html', {'category': category, 'products': products})
+
+
+def get_category_path_from_slug(slug, parent_slug=None):  # Тут я получаю категорию и её подкатегории по слагу.
     if parent_slug:
         parent_category = get_object_or_404(Category, slug=parent_slug)
         category = get_object_or_404(Category, slug=slug, parent_category=parent_category)
     else:
         category = get_object_or_404(Category, slug=slug, parent_category__isnull=True)
 
-    subcategories = category.subcategories.all()
-    if subcategories.exists():
-        products = Product.objects.filter(category__in=[category] + list(subcategories))
-    else:
-        products = Product.objects.filter(category=category)
-
-    return render(request, 'category_products.html', {'category': category, 'products': products})
+    return category

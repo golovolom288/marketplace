@@ -63,3 +63,12 @@ class ProductImage(models.Model):
 
     def __str__(self):
         return f"Image for {self.product.name}"
+
+
+class ProductSpecification(models.Model):
+    product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name="specifications")
+    name = models.CharField(max_length=255, verbose_name="Характеристика")
+    value = models.CharField(max_length=255, verbose_name="Значение")
+
+    def __str__(self):
+        return f"{self.name}: {self.value}"

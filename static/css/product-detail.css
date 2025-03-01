@@ -4,20 +4,23 @@
   margin-top: 50px;
 }
 
-.path-product-block a, .path-product-block p  {
-  text-decoration: none;
-  color: #A3A3A3;
-  font-size: 20px;
-  margin: 0;
+.path-to-category {
+  margin-top: 50px;
+}
+
+.path-to-category a {
+  font-size: 16px;
+  color: black;
 }
 
 .product-block {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  height: 715px;
   width: 100%;
-  margin-top: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 20px;
 }
 
 /* ДРУГИЕ ФОТО ПРОДУКТА */
@@ -37,47 +40,49 @@
   width: 8px;
 }
 
-/* Ползунок (ползущий элемент) */
 .other-photos::-webkit-scrollbar-thumb {
-background-color: #888; /* Цвет ползунка */
-border-radius: 10px; /* Закругление */
+  background-color: #888;
+  border-radius: 10px;
 }
 
-/* Ползунок при наведении */
 .other-photos::-webkit-scrollbar-thumb:hover {
-background-color: #555;
+  background-color: #555;
 }
 
 .other-photo {
-display: flex;
-width: 130px;
-height: 160px;
-border-radius: 20px;
-border: 2px solid #FFAE5D;
-justify-content: center;
-align-items: center;
+  display: flex;
+  width: 130px;
+  height: 160px;
+  border-radius: 20px;
+  border: 2px solid #FFAE5D;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
 }
 
 .other-photos img {
-max-width: 130px;
-max-height: 160px;
-height: auto;
-width: auto;
+  max-width: 100px;
+  max-height: 140px;
+  height: auto;
+  width: auto;
 }
 
 
 /* ГЛАВНОЕ ФОТО */
 /* ________________________________________________________________________________________________________________________ */
-
-
 .main-photo {
-  width: 600px;
+  width: 570px;
   height: 715px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .main-photo img {
-  max-width: 600px;
+  max-width: 570px;
   max-height: 715px;
+  min-width: 500px;
+  min-height: 615px;
   width: auto;
   height: auto;
 }
@@ -89,6 +94,7 @@ width: auto;
   flex-direction: column;
   width: 450px;
   height: 100%;
+  box-sizing: border-box;
 }
 
 .product-title {
@@ -125,14 +131,8 @@ width: auto;
 }
 
 .product-buy-block {
-  display: flex;
-  flex-direction: column;
-  width: 450px;
-  height: 480px;
-  margin-top: 25px;
-  border-radius: 20px;
-  background-color: rgba(217, 217, 217, 0.253);
-  padding: 25px;
+  width: 100%;
+  padding: 15px;
 }
 
 .product-price {
@@ -152,8 +152,7 @@ width: auto;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  margin-top: auto;
-
+  margin-top: 20px;
 }
 
 
@@ -169,4 +168,54 @@ width: auto;
 .product-buy-share-like img {
   width: 32px;
   height: 32px;
+}
+
+/* ХАРАКТЕРИСТИКА */
+/* ___________________________________________________________________________________________ */
+.specifications {
+  width: 65%;
+  margin-top: 20px;
+}
+
+.specifications table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: Arial, sans-serif;
+}
+
+.specifications th, 
+.specifications td {
+  padding: 5px 10px;
+  font-size: 18px;
+  border-bottom: 1px solid #ddd;
+  vertical-align: middle;
+}
+
+.specifications th {
+  text-align: left;
+  background-color: #f1f1f1;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+.specifications td {
+  white-space: nowrap;
+}
+
+
+.zoom-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.zoom-lens {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  border: 2px solid #FFAE5D;
+  border-radius: 50%;
+  background-repeat: no-repeat;
+  pointer-events: none;
+  display: none;
+  transform: translate(-50%, -50%);
 }

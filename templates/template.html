@@ -52,34 +52,36 @@
       {% block content %}
       {% endblock %}
     </main>
-  </div>
-  <footer>
-    <div class="logo-block">
-      <img src="/static/imgs/shopcart-white.png" alt="">
-    </div>
-
-    <div class="footer-links">
-      <nav class="footer-nav">
-        <ul>
-          <li><a href="#">About Us</a></li>
-          <li><a href="#">Contact</a></li>
-          <li><a href="#">Help</a></li>
+    
+    <footer>
+      <div class="logo-block">
+        <img src="/static/imgs/shopcart-white.png" alt="">
+      </div>
+  
+      <div class="footer-links">
+        <nav class="footer-nav">
+          <ul>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">Help</a></li>
+          </ul>
+        </nav>
+      </div>
+  
+      <div class="footer-language">
+        <img src="/static/imgs/england.png" alt="">
+        <span>English</span>
+        <img src="/static/imgs/icons/arrowdown.svg" class="arrow-icon" alt="Arrow Icon">
+        <ul class="language-menu">
+          <li data-lang="en">Comming soon...</li>
+          <li data-lang="ru">Comming soon...</li>
+          <li data-lang="es">Comming soon...</li>
+          <li data-lang="fr">Comming soon...</li>
         </ul>
-      </nav>
-    </div>
-
-    <div class="footer-language">
-      <img src="/static/imgs/england.png" alt="">
-      <span>English</span>
-      <img src="/static/imgs/icons/arrowdown.svg" class="arrow-icon" alt="Arrow Icon">
-      <ul class="language-menu">
-        <li data-lang="en">Comming soon...</li>
-        <li data-lang="ru">Comming soon...</li>
-        <li data-lang="es">Comming soon...</li>
-        <li data-lang="fr">Comming soon...</li>
-      </ul>
-    </div>
-  </footer>
+      </div>
+    </footer>
+  </div>
+  
   <script src="{% static 'js/template.js' %}"></script>
 
 </body>

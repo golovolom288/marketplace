@@ -1,34 +1,38 @@
 from django.contrib import admin
-from main.models import Category, Product, ProductImage
+from .models import Category, Product, ProductImage, ProductSpecification
 
 
-class SubCategoryInline(admin.TabularInline):  # Встроенные подкатегории
-    model = Category
-    fk_name = "parent_category"
+class ProductSpecificationInline(admin.TabularInline):
+    model = ProductSpecification
     extra = 1
+
+
+class ProductImageInline(admin.TabularInline):
+    model = ProductImage
+    extra = 1
+
+
+@admin.register(Product)
+class ProductAdmin(admin.ModelAdmin):
+    list_display = ('name', 'category', 'price', 'quantity', 'is_hot_deal')
+    list_filter = ('category', 'is_hot_deal')
+    search_fields = ('name',)
+    prepopulated_fields = {'slug': ('name',)}
+    inlines = [ProductSpecificationInline, ProductImageInline]
 
 
 @admin.register(Category)
 class CategoryAdmin(admin.ModelAdmin):
     list_display = ('name', 'parent_category', 'is_hot_category', 'popular_category')
-    list_editable = ('is_hot_category', 'popular_category')
-    search_fields = ['name']
-    list_filter = ('parent_category', 'is_hot_category', 'popular_category')
-    inlines = [SubCategoryInline]  # Вложенные подкатегории внутри категории
+    prepopulated_fields = {'slug': ('name',)}
 
 
-class ProductImageInline(admin.TabularInline):
-    model = ProductImage
-    extra = 1  # Количество пустых полей для добавления новых фото
+@admin.register(ProductSpecification)
+class ProductSpecificationAdmin(admin.ModelAdmin):
+    list_display = ('product', 'name', 'value')
+    search_fields = ('product__name', 'name')
 
 
-@admin.register(Product)
-class ProductAdmin(admin.ModelAdmin):
-    list_display = ('name', 'price', 'is_hot_deal', 'category')
-    list_editable = ('is_hot_deal',)
-    search_fields = ['name', 'price', 'category']
-    list_filter = ('is_hot_deal', 'name')
-    inlines = [ProductImageInline]
-
-
-admin.site.register(ProductImage)
+@admin.register(ProductImage)
+class ProductImageAdmin(admin.ModelAdmin):
+    list_display = ('product', 'image', 'is_main')

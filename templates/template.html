@@ -6,25 +6,44 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
-  <title>Главная страница</title>
+  <title>Main Page</title>
   <!-- <link rel="stylesheet" href="../../static/font-awesome-4.7.0/css/font-awesome.min.css"> -->
-  <link rel="stylesheet" href="{% static 'css/template.css' %}">
-  <link rel="stylesheet" href="{% static 'css/template.css' %}">
+    <link rel="stylesheet" href="{% static 'css/template.css' %}">
+
+
   {% block css%} {% endblock %}
 </head>
 
-<body style='overflow-x:hidden;'>
+<body>
   <div class="container">
     <header class="header">
       <div class="logo-block">
         <img src="/static/imgs/shopcart.png" alt="">
       </div>
-      <div class="autorization-block">
-        <a href="#">
-          <img src="/static/imgs/icons/profile.svg" alt="">
-          <p>Sign Up</p>
-        </a>
-      </div>
+      <div class="account-bar">
+            {% if not user.is_authenticated %}
+                <div class = "account-enter">
+                    <a href="{% url 'login'%}">
+                        <p>Log In</p>
+                    </a>
+                    <a href="{% url 'registration'%}">
+                        <p>Sign Up</p>
+                    </a>
+                </div>
+            {% else %}
+                <div class = "account-navigation">
+                    <img class="avatar" src="{% static 'imgs/icons/profile.svg' %}">
+                    <a class = "dropdown-toggle" id = "dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">{{user.username}}</a>
+                    <ul class = "dropdown-menu" id = "dropdown-menu">
+                        <li><a class="dropdown-item" href="{% url 'profile' %}">Profile</a></li>
+                        {% if user.is_superuser%}
+                        <li><a class="dropdown-item" href="/admin">Admin Panel</a></li>
+                        {%endif%}
+                        <li><a class="dropdown-item" href="{% url 'logout' %}">Logout</a></li>
+                    </ul>
+                </div>
+            {%endif%}
+        </div>
     </header>
 
     <div class="country-search">

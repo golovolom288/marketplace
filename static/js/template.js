@@ -21,7 +21,6 @@ document.addEventListener('DOMContentLoaded', () => {
       }
   });
 
-
 });
 
 function startCountdown(hours) {
@@ -53,3 +52,5 @@ function startCountdown(hours) {
 }
 
 startCountdown(1);
+
+

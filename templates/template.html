@@ -41,21 +41,9 @@
     <div class="catalog">
       <nav class="catalog-nav">
         <ul>
-          <li><a href="#">Fresh</a></li>
-          <li><a href="#">Today’s Deals</a></li>
-          <li><a href="#">Gift Cards</a></li>
-          <li><a href="#">Electronics</a></li>
-          <li><a href="#">Clothing</a></li>
-          <li><a href="#">Sport</a></li>
-          <li><a href="#">Health</a></li>
-          <li><a href="#">Auto goods</a></li>
-          <li><a href="#">Pet corner</a></li>
-          <li><a href="#">Books</a></li>
-          <li><a href="#">Beauty</a></li>
-          <li><a href="#">Kitchen</a></li>
-          <li><a href="#">Bed Room</a></li>
-          <li><a href="#">Jewelry</a></li>
-          <li><a href="#">Furniture</a></li>
+          {% for category in categories %}
+            <li><a href="{% url 'category_products' category.slug %}">{{category.name}}</a></li>
+          {% endfor %}
         </ul>
       </nav>
     </div>
@@ -64,34 +52,36 @@
       {% block content %}
       {% endblock %}
     </main>
-  </div>
-  <footer>
-    <div class="logo-block">
-      <img src="/static/imgs/shopcart-white.png" alt="">
-    </div>
-
-    <div class="footer-links">
-      <nav class="footer-nav">
-        <ul>
-          <li><a href="#">About Us</a></li>
-          <li><a href="#">Contact</a></li>
-          <li><a href="#">Help</a></li>
+    
+    <footer>
+      <div class="logo-block">
+        <img src="/static/imgs/shopcart-white.png" alt="">
+      </div>
+  
+      <div class="footer-links">
+        <nav class="footer-nav">
+          <ul>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">Help</a></li>
+          </ul>
+        </nav>
+      </div>
+  
+      <div class="footer-language">
+        <img src="/static/imgs/england.png" alt="">
+        <span>English</span>
+        <img src="/static/imgs/icons/arrowdown.svg" class="arrow-icon" alt="Arrow Icon">
+        <ul class="language-menu">
+          <li data-lang="en">Comming soon...</li>
+          <li data-lang="ru">Comming soon...</li>
+          <li data-lang="es">Comming soon...</li>
+          <li data-lang="fr">Comming soon...</li>
         </ul>
-      </nav>
-    </div>
-
-    <div class="footer-language">
-      <img src="/static/imgs/england.png" alt="">
-      <span>English</span>
-      <img src="/static/imgs/icons/arrowdown.svg" class="arrow-icon" alt="Arrow Icon">
-      <ul class="language-menu">
-        <li data-lang="en">Comming soon...</li>
-        <li data-lang="ru">Comming soon...</li>
-        <li data-lang="es">Comming soon...</li>
-        <li data-lang="fr">Comming soon...</li>
-      </ul>
-    </div>
-  </footer>
+      </div>
+    </footer>
+  </div>
+  
   <script src="{% static 'js/template.js' %}"></script>
 
 </body>

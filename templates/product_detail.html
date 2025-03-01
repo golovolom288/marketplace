@@ -14,9 +14,20 @@
 {% block content %}
   <div class="product-detail-container">
     {% if product_item %}
-      <div class="path-product-block">
-        <p> <a href="/">Главная</a> / <a href="#">{{ product_item.category }}</a> </p>
-      </div>
+    <div class="path-to-category">
+      <p>
+          <a href="/">Главная</a>
+          {% for cat in category_path %}
+              /
+              {% if forloop.first %}
+                  <a href="{% url 'category_products' cat.slug %}">{{ cat.name }}</a>
+              {% else %}
+                  <a href="{% url 'category_products' parent_slug=cat.parent_category.slug slug=cat.slug %}">{{ cat.name }}</a>
+              {% endif %}
+          {% endfor %}
+          / {{ product_item.name }}
+      </p>
+    </div>
 
       <div class="product-block">
         <div class="other-photos">
@@ -28,9 +39,13 @@
         </div>
         <div class="main-photo">
           {% if product_item.get_main_image %}
-            <img src="{{ product_item.get_main_image }}" alt="Главное фото" width="300">
+            <div class="zoom-container">
+              <img src="{{ product_item.get_main_image }}" alt="Главное фото" id="zoomImage">
+              <div class="zoom-lens"></div>
+            </div>
           {% endif %}
         </div>
+        
         <div class="product-content">
           <div class="product-title">{{ product_item.name }}</div>
           <div class="product-rating">
@@ -48,11 +63,30 @@
             <div class="product-buy-share-like">
               <button class="btn-add-to-cart">Add to cart</button>
               <img src="/static/imgs/icons/favourite.svg">
-              <img src="/static/imgs/icons/share.svg">
+              <img src="/static/imgs/icons/share.svg" id="copyLink" style="cursor: pointer;" alt="Share">
             </div>
           </div>
         </div>
       </div>
+      <div class="specifications">
+        <table>
+          <thead>
+            <tr>
+              <th>Specification</th>
+              <th>Value</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for spec in product_item.specifications.all %}
+              <tr>
+                <td>{{ spec.name }}</td>
+                <td>{{ spec.value }}</td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+      
 
       <div class="reviews-block"></div>
      {% endif %}

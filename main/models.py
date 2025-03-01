@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils.text import slugify
 
 
 class Category(models.Model):
@@ -22,6 +23,11 @@ class Category(models.Model):
         db_table = 'category'
         verbose_name = 'Категория'
         verbose_name_plural = 'Категории'
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.name)
+        super().save(*args, **kwargs)
 
     def __str__(self):
         return f"{self.parent_category.name} -> {self.name}" if self.parent_category else self.name
@@ -57,3 +63,12 @@ class ProductImage(models.Model):
 
     def __str__(self):
         return f"Image for {self.product.name}"
+
+
+class ProductSpecification(models.Model):
+    product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name="specifications")
+    name = models.CharField(max_length=255, verbose_name="Характеристика")
+    value = models.CharField(max_length=255, verbose_name="Значение")
+
+    def __str__(self):
+        return f"{self.name}: {self.value}"

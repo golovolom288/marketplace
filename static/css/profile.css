@@ -23,11 +23,20 @@ body{
     background-position: 15% 50%;
   }
 }
-.home{
+.home {
   position: absolute;
-  top: 10px;
-  width: 300px;
+  bottom: 60px;
+  min-width: 300px;
+  width: auto;
 }
+
+.home a {
+  position: absolute;
+  min-width: 300px;
+  width: auto;
+  margin: 0;
+}
+
 .profile_change{
   width: 600px;
   height: 750px;
@@ -38,7 +47,8 @@ body{
 }
 .profile_info{
   display: flex;
-  width: 325px;
+  min-width: 325px;
+  width: auto;
   min-height: 750px;
   background-color: #c0c0c0;
   opacity: 80%;

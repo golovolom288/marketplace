@@ -21,37 +21,38 @@
         <h3>We picked<br>some <span class="highlight-text">cool <br> things</span> for<br>you!</h3>
     </div>
     <div class="products">
-        <div class="products-title">
-            <p>🔥 Hot deals for you 🔥</p>
-        </div>
-        <div class="hot-products slider">
-            {% if hot_products %}
-                {% for product in hot_products %}
-                    <div class="product-card">
-                        <a href="{% url 'product_detail' product.slug %}"> 
-                            <div class="product-image">
-                                {% if product.get_main_image %}
-                                    <img src="{{ product.get_main_image }}" alt="{{ product.name }}">
-                                {% endif %}
-                            </div>
-                            <div class="product-name">
-                                <h2 class="product-title">{{ product.name|safe }}</h2>
-                            </div>
-                            <div class="product-pricing">
-                                <p class="product-price">$ {{ product.price }}</p>
-                                {% if product.discount %}
-                                    <p class="product-discount">-{{ product.discount }}%</p>
-                                {% endif %}
-                            </div>
-                        </a>
-                    </div>
-                {% endfor %}
-            {% else %}
-                <p class="no-product-message">No products available at the moment.</p>
-            {% endif %}
-        </div>
+      <div class="products-title">
+        <p>🔥 Hot deals for you 🔥</p>
+      </div>
+      <div class="hot-products slider">
+        {% if hot_products %}
+          {% for product in hot_products %}
+            <div class="product-card">
+              <a href="{% url 'product_detail' product.slug %}"> 
+                <div class="product-image">
+                  {% if product.get_main_image %}
+                    <img src="{{ product.get_main_image }}" alt="{{ product.name }}">
+                  {% endif %}
+                </div>
+                <div class="product-name">
+                  <h2 class="product-title">{{ product.name|safe }}</h2>
+                </div>
+                <div class="product-pricing">
+                  <p class="product-price">$ {{ product.price }}</p>
+                  {% if product.discount %}
+                    <p class="product-discount">-{{ product.discount }}%</p>
+                  {% endif %}
+                </div>
+              </a>
+            </div>
+          {% endfor %}
+        {% else %}
+          <p class="no-product-message">No products available at the moment.</p>
+        {% endif %}
+      </div>
     </div>
   </div>
+
 
   <div class="special-offer">
     <div class="special-offer-text">

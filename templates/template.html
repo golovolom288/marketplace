@@ -21,29 +21,29 @@
         <img src="/static/imgs/shopcart.png" alt="">
       </div>
       <div class="account-bar">
-            {% if not user.is_authenticated %}
-                <div class = "account-enter">
-                    <a href="{% url 'login'%}">
-                        <p>Log In</p>
-                    </a>
-                    <a href="{% url 'registration'%}">
-                        <p>Sign Up</p>
-                    </a>
-                </div>
-            {% else %}
-                <div class = "account-navigation">
-                    <img class="avatar" src="{% static 'imgs/icons/profile.svg' %}">
-                    <a class = "dropdown-toggle" id = "dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">{{user.username}}</a>
-                    <ul class = "dropdown-menu" id = "dropdown-menu">
-                        <li><a class="dropdown-item" href="{% url 'profile' %}">Profile</a></li>
-                        {% if user.is_superuser%}
-                        <li><a class="dropdown-item" href="/admin">Admin Panel</a></li>
-                        {%endif%}
-                        <li><a class="dropdown-item" href="{% url 'logout' %}">Logout</a></li>
-                    </ul>
-                </div>
-            {%endif%}
-        </div>
+        {% if not user.is_authenticated %}
+          <div class = "account-enter">
+            <a href="{% url 'login'%}">
+              <p>Log In</p>
+            </a>
+            <a href="{% url 'registration'%}">
+              <p>Sign Up</p>
+            </a>
+          </div>
+        {% else %}
+          <div class = "account-navigation">
+            <img class="avatar" src="{% static 'imgs/icons/profile.svg' %}">
+            <a class = "dropdown-toggle" id = "dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">{{user.username}}</a>
+            <ul class = "dropdown-menu" id = "dropdown-menu">
+              <li><a class="dropdown-item" href="{% url 'profile' %}">Profile</a></li>
+                {% if user.is_superuser %}
+                  <li><a class="dropdown-item" href="/admin">Admin Panel</a></li>
+                {% endif %}
+                <li><a class="dropdown-item" href="{% url 'logout' %}">Logout</a></li>
+            </ul>
+          </div>
+        {%endif%}
+      </div>
     </header>
 
     <div class="country-search">
@@ -61,11 +61,24 @@
       <nav class="catalog-nav">
         <ul>
           {% for category in categories %}
-            <li><a href="{% url 'category_products' category.slug %}">{{category.name}}</a></li>
+            <li class="category-item">
+              <a href="{% url 'category_products' category.slug %}">{{ category.name }}</a>
+              
+              {% if category.subcategories.exists %}
+                <div class="subs">
+                  <ul class="subcategories">
+                    {% for subcategory in category.subcategories.all %}
+                      <li><a href="{% url 'category_products' subcategory.slug %}">{{ subcategory.name }}</a></li>
+                    {% endfor %}
+                  </ul>
+                </div>
+              {% endif %}
+            </li>
           {% endfor %}
         </ul>
       </nav>
     </div>
+    
 
     <main>
       {% block content %}

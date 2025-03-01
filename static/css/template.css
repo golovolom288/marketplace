@@ -109,21 +109,61 @@ body, html {
 /* КАТАЛОГ */
 /* ___________________________________________________________________ */
 
-.catalog-nav ul{
+/* Категории */
+.catalog-nav ul {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   padding: 0;
 }
 
-.catalog-nav li{
+.catalog-nav li {
   list-style-type: none;
+  position: relative; /* Чтобы подкатегории отображались поверх */
 }
 
-.catalog-nav li a{
+.catalog-nav li a {
   text-decoration: none;
   color: black;
   font-size: 13px;
+  padding: 10px;
+  display: block;
+}
+
+/* Подкатегории */
+
+.subs {
+  display: none;
+}
+
+.subcategories {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  list-style: none;
+  z-index: 1000;
+}
+
+.subcategories li {
+  padding: 8px 10px;
+}
+
+.subcategories li a {
+  text-decoration: none;
+  color: black;
+}
+
+.category-item:hover .subs {
+  display: block;
+}
+
+.subcategories li:hover {
+  background-color: #f0f0f0;
+  display: flex;
+  flex-direction: column;
 }
 
 /* Футер */

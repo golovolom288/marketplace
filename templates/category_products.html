@@ -29,12 +29,6 @@
     <h1>Announcements</h1>
   </div>
   <div class="products-filters">
-    <div class="filters">
-      <form method="get">
-        {{ form.as_p }}
-        <button type="submit">Применить</button>
-      </form>
-    </div>
     <div class="products">
       {% if products %}
         {% for product in products %}
@@ -42,7 +36,7 @@
             <div class="product-btns-content">
               <div class="btns-product">
                 <button class="btn-selection"></button>
-                <button class="btn-favourite"><img src="{% static 'imgs/icons/gray-star.svg' %}"></button>
+                <butto class="btn-favourite"><img src="{% static 'imgs/icons/gray-star.svg' %}"></button>
               </div>
               <a href="{% url 'product_detail' product.slug %}">
                 <div class="product-img">
@@ -83,37 +77,3 @@
     </div>
   </div>
 {% endblock %}
-      {% if category.parent_category %}
-        <p><a href="/">Главная</a> / <a href="/">{{ category.parent_category.name }}</a> / {{ category.name }}</p>
-      {% else %}
-        <p>Главная / {{ category.name }}</p>
-      {% endif %}
-    {% endif %}
-  </div>
-  <div class="catalog-annoucements"></div>
-  <div class="products-filters">
-    <div class="filters"></div>
-    <div class="products"></div>
-  </div>
-{% endblock %}
-
-<h1>Товары категории "{{ category.name }}"</h1>
-  
-  {% if category.parent_category %}
-    <p>Подкатегория в "{{ category.parent_category.name }}"</p>
-  {% endif %}
-
-  {% if products %}
-    <ul>
-      {% for product in products %}
-        <li>
-          <a href="{% url 'product_detail' product.slug %}">
-            <img src="{{ product.get_main_image }}" alt="{{ product.name }}" width="100">
-            {{ product.name }} - {{ product.price }}$
-          </a>
-        </li>
-      {% endfor %}
-    </ul>
-  {% else %}
-    <p>Товаров пока нет</p>
-  {% endif %}

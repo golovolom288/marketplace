@@ -9,9 +9,7 @@
   <link href="{% static 'css/normalize.css' %}" rel="stylesheet" type="text/css" />
   <link href="{% static 'css/profile.css' %}" rel="stylesheet" type="text/css" />
 </head>
-<div class="home">
-    <a href = "{% url 'home'%}">Вернуться на главную</a>
-  </div>
+
 <body>
   <div class="profile_content">
     <div class="profile_info">
@@ -82,6 +80,9 @@
     </div>
   </div>
 
+  <div class="home">
+    <a href = "{% url 'home'%}">Вернуться на главную</a>
+  </div>
   <script src="script.js"></script>
 </body>
 </html>

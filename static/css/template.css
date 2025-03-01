@@ -235,11 +235,9 @@ footer .footer-nav li a{
   box-shadow:inset 0 0 0 1px #bcbcbc;
   margin-left: 10px;
 }
-<<<<<<< Updated upstream
-
 .subcategories:hover {
   display: block;
-=======
+}
 .category img{
   width: 180px;
   height: 180px;
@@ -329,8 +327,4 @@ footer .footer-nav li a{
 }
 .account-navigation{
   margin-right: 100px;
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
 }

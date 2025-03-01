@@ -14,8 +14,6 @@
 {% block content %}
   <div class="path-to-category">
     {% if category %}
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
         <p><a href="/">Главная</a>
           {% if category.parent_category %}
             /
@@ -44,7 +42,7 @@
             <div class="product-btns-content">
               <div class="btns-product">
                 <button class="btn-selection"></button>
-                <butto class="btn-favourite"><img src="{% static 'imgs/icons/gray-star.svg' %}"></button>
+                <button class="btn-favourite"><img src="{% static 'imgs/icons/gray-star.svg' %}"></button>
               </div>
               <a href="{% url 'product_detail' product.slug %}">
                 <div class="product-img">
@@ -85,9 +83,6 @@
     </div>
   </div>
 {% endblock %}
-=======
-=======
->>>>>>> Stashed changes
       {% if category.parent_category %}
         <p><a href="/">Главная</a> / <a href="/">{{ category.parent_category.name }}</a> / {{ category.name }}</p>
       {% else %}
@@ -121,9 +116,10 @@
     </ul>
   {% else %}
     <p>Товаров пока нет</p>
-<<<<<<< Updated upstream
+
   {% endif %}
->>>>>>> Stashed changes
-=======
+
   {% endif %}
->>>>>>> Stashed changes
+
+  {% endif %}
+

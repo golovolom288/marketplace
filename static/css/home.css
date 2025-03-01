@@ -50,7 +50,7 @@
 /* ___________________________________________________________________________________________________________ */
 /* КАРТОЧКА ПРОДУКТА  */
 
-.hot-products, .hot-categories-products {
+.hot-products {
   margin-top: 15px;
   display: flex;
   flex-direction: row;
@@ -58,6 +58,11 @@
   width: auto;
   gap: 20px;
   flex-wrap: wrap;
+}
+
+.hot-categories-products {
+  margin-top: 15px;
+  width: 100%;
 }
 
 .product-card {
@@ -71,7 +76,10 @@
 
 .product-card a, .category-card a {
   text-decoration: none;
+  display: block;
+  width: 130px;
 }
+
 
 .product-title, .category-title {
   margin-top: 5px;
@@ -80,9 +88,8 @@
   color: black;
   font-weight: bold;
   height: 22px;
+  width: 130px;
 }
-
-
 
 .product-pricing {
   display: flex;
@@ -252,4 +259,12 @@
 .category-title {
   color: black;
   font-size: 14px;
+}
+
+.hot-categories-products .product-card {
+  transition: transform 0.3s ease-in-out;
+}
+
+.hot-categories-products .slick-center .product-card {
+  transform: scale(1.1);
 }
